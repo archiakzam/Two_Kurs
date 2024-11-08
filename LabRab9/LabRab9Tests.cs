@@ -19,8 +19,8 @@ namespace LabRab9.Tests
             MoneyArray moneyArray = new MoneyArray(size, rnd);
 
             // Assert
-            Assert.AreEqual(size, moneyArray.Length, "Длина массива MoneyArray не совпадает с заданной");
-            Assert.IsNotNull(moneyArray.GetMin(), "Минимальный элемент не должен быть null для массива с элементами");
+            Assert.AreEqual(size, moneyArray.Length, "Р”Р»РёРЅР° РјР°СЃСЃРёРІР° MoneyArray РЅРµ СЃРѕРІРїР°РґР°РµС‚ СЃ Р·Р°РґР°РЅРЅРѕР№");
+            Assert.IsNotNull(moneyArray.GetMin(), "РњРёРЅРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ РЅРµ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ null РґР»СЏ РјР°СЃСЃРёРІР° СЃ СЌР»РµРјРµРЅС‚Р°РјРё");
         }
 
         [TestMethod]
@@ -33,12 +33,12 @@ namespace LabRab9.Tests
             // Act
             for (int i = 0; i < size; i++)
             {
-                moneyArray[i] = new Money(i + 1, i * 10); // Заполняем вручную
+                moneyArray[i] = new Money(i + 1, i * 10); // Р—Р°РїРѕР»РЅСЏРµРј РІСЂСѓС‡РЅСѓСЋ
             }
 
             // Assert
-            Assert.AreEqual(size, moneyArray.Length, "Длина массива MoneyArray не совпадает с заданной");
-            Assert.IsNotNull(moneyArray.GetMin(), "Минимальный элемент не должен быть null для вручную заполненного массива");
+            Assert.AreEqual(size, moneyArray.Length, "Р”Р»РёРЅР° РјР°СЃСЃРёРІР° MoneyArray РЅРµ СЃРѕРІРїР°РґР°РµС‚ СЃ Р·Р°РґР°РЅРЅРѕР№");
+            Assert.IsNotNull(moneyArray.GetMin(), "РњРёРЅРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ РЅРµ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ null РґР»СЏ РІСЂСѓС‡РЅСѓСЋ Р·Р°РїРѕР»РЅРµРЅРЅРѕРіРѕ РјР°СЃСЃРёРІР°");
         }
 
         [TestMethod]
@@ -51,8 +51,8 @@ namespace LabRab9.Tests
             money++;
 
             // Assert
-            Assert.AreEqual(11, money.Rubles, "Неверное значение рублей после инкремента");
-            Assert.AreEqual(50, money.Kopeks, "Значение копеек должно остаться без изменений после инкремента");
+            Assert.AreEqual(11, money.Rubles, "РќРµРІРµСЂРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ СЂСѓР±Р»РµР№ РїРѕСЃР»Рµ РёРЅРєСЂРµРјРµРЅС‚Р°");
+            Assert.AreEqual(50, money.Kopeks, "Р—РЅР°С‡РµРЅРёРµ РєРѕРїРµРµРє РґРѕР»Р¶РЅРѕ РѕСЃС‚Р°С‚СЊСЃСЏ Р±РµР· РёР·РјРµРЅРµРЅРёР№ РїРѕСЃР»Рµ РёРЅРєСЂРµРјРµРЅС‚Р°");
         }
 
         [TestMethod]
@@ -65,8 +65,8 @@ namespace LabRab9.Tests
             money--;
 
             // Assert
-            Assert.AreEqual(9, money.Rubles, "Неверное значение рублей после декремента");
-            Assert.AreEqual(100, money.Kopeks, "Копейки должны быть 100 после декремента для корректного значения");
+            Assert.AreEqual(9, money.Rubles, "РќРµРІРµСЂРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ СЂСѓР±Р»РµР№ РїРѕСЃР»Рµ РґРµРєСЂРµРјРµРЅС‚Р°");
+            Assert.AreEqual(100, money.Kopeks, "РљРѕРїРµР№РєРё РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ 100 РїРѕСЃР»Рµ РґРµРєСЂРµРјРµРЅС‚Р° РґР»СЏ РєРѕСЂСЂРµРєС‚РЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ");
         }
 
         [TestMethod]
@@ -79,7 +79,7 @@ namespace LabRab9.Tests
             int rubles = (int)money;
 
             // Assert
-            Assert.AreEqual(5, rubles, "Приведение к int должно возвращать только рубли");
+            Assert.AreEqual(5, rubles, "РџСЂРёРІРµРґРµРЅРёРµ Рє int РґРѕР»Р¶РЅРѕ РІРѕР·РІСЂР°С‰Р°С‚СЊ С‚РѕР»СЊРєРѕ СЂСѓР±Р»Рё");
         }
 
         [TestMethod]
@@ -92,7 +92,7 @@ namespace LabRab9.Tests
             double kopeks = money;
 
             // Assert
-            Assert.AreEqual(575, kopeks, "Приведение к double должно возвращать полное значение в копейках");
+            Assert.AreEqual(575, kopeks, "РџСЂРёРІРµРґРµРЅРёРµ Рє double РґРѕР»Р¶РЅРѕ РІРѕР·РІСЂР°С‰Р°С‚СЊ РїРѕР»РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РІ РєРѕРїРµР№РєР°С…");
         }
 
         [TestMethod]
@@ -106,8 +106,8 @@ namespace LabRab9.Tests
             Money result = money + addKopeks;
 
             // Assert
-            Assert.AreEqual(6, result.Rubles, "Рубли после добавления копеек должны быть 6");
-            Assert.AreEqual(0, result.Kopeks, "Копейки должны быть 0 после добавления 25 копеек к 75 копейкам");
+            Assert.AreEqual(6, result.Rubles, "Р СѓР±Р»Рё РїРѕСЃР»Рµ РґРѕР±Р°РІР»РµРЅРёСЏ РєРѕРїРµРµРє РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ 6");
+            Assert.AreEqual(0, result.Kopeks, "РљРѕРїРµР№РєРё РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ 0 РїРѕСЃР»Рµ РґРѕР±Р°РІР»РµРЅРёСЏ 25 РєРѕРїРµРµРє Рє 75 РєРѕРїРµР№РєР°Рј");
         }
 
         [TestMethod]
@@ -121,8 +121,8 @@ namespace LabRab9.Tests
             Money result = money - subKopeks;
 
             // Assert
-            Assert.AreEqual(4, result.Rubles, "Рубли после вычитания 100 копеек должны быть 4");
-            Assert.AreEqual(50, result.Kopeks, "Копейки должны быть 50 после вычитания 100 копеек");
+            Assert.AreEqual(4, result.Rubles, "Р СѓР±Р»Рё РїРѕСЃР»Рµ РІС‹С‡РёС‚Р°РЅРёСЏ 100 РєРѕРїРµРµРє РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ 4");
+            Assert.AreEqual(50, result.Kopeks, "РљРѕРїРµР№РєРё РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ 50 РїРѕСЃР»Рµ РІС‹С‡РёС‚Р°РЅРёСЏ 100 РєРѕРїРµРµРє");
         }
 
         [TestMethod]
@@ -135,7 +135,7 @@ namespace LabRab9.Tests
                 int result = Interface.ReadElem();
 
                 // Assert
-                Assert.AreEqual(5, result, "Метод ReadElem должен возвращать введенное число");
+                Assert.AreEqual(5, result, "РњРµС‚РѕРґ ReadElem РґРѕР»Р¶РµРЅ РІРѕР·РІСЂР°С‰Р°С‚СЊ РІРІРµРґРµРЅРЅРѕРµ С‡РёСЃР»Рѕ");
             }
         }
 
@@ -149,7 +149,7 @@ namespace LabRab9.Tests
                 int result = Interface.ReadElem();
 
                 // Assert
-                Assert.AreEqual(5, result, "Метод ReadElem должен пропускать некорректный ввод и принимать следующее корректное значение");
+                Assert.AreEqual(5, result, "РњРµС‚РѕРґ ReadElem РґРѕР»Р¶РµРЅ РїСЂРѕРїСѓСЃРєР°С‚СЊ РЅРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ Рё РїСЂРёРЅРёРјР°С‚СЊ СЃР»РµРґСѓСЋС‰РµРµ РєРѕСЂСЂРµРєС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ");
             }
         }
 
@@ -166,12 +166,12 @@ namespace LabRab9.Tests
             MoneyArray moneyArray = new MoneyArray();
 
             // Assert
-            Assert.AreEqual(10, moneyArray.Length, "Массив по умолчанию должен иметь длину 10.");
+            Assert.AreEqual(10, moneyArray.Length, "РњР°СЃСЃРёРІ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РґРѕР»Р¶РµРЅ РёРјРµС‚СЊ РґР»РёРЅСѓ 10.");
             foreach (var money in moneyArray)
             {
-                Assert.IsNotNull(money, "Элемент массива Money должен быть инициализирован.");
-                Assert.AreEqual(0, money.Rubles, "Рубли по умолчанию должны быть равны 0.");
-                Assert.AreEqual(0, money.Kopeks, "Копейки по умолчанию должны быть равны 0.");
+                Assert.IsNotNull(money, "Р­Р»РµРјРµРЅС‚ РјР°СЃСЃРёРІР° Money РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°РЅ.");
+                Assert.AreEqual(0, money.Rubles, "Р СѓР±Р»Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ СЂР°РІРЅС‹ 0.");
+                Assert.AreEqual(0, money.Kopeks, "РљРѕРїРµР№РєРё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ СЂР°РІРЅС‹ 0.");
             }
         }
 
@@ -185,12 +185,12 @@ namespace LabRab9.Tests
             MoneyArray moneyArray = new MoneyArray(size, rnd);
 
             // Assert
-            Assert.AreEqual(size, moneyArray.Length, "Длина массива должна совпадать с переданным значением.");
+            Assert.AreEqual(size, moneyArray.Length, "Р”Р»РёРЅР° РјР°СЃСЃРёРІР° РґРѕР»Р¶РЅР° СЃРѕРІРїР°РґР°С‚СЊ СЃ РїРµСЂРµРґР°РЅРЅС‹Рј Р·РЅР°С‡РµРЅРёРµРј.");
             foreach (var money in moneyArray)
             {
-                Assert.IsNotNull(money, "Элемент массива Money должен быть инициализирован.");
-                Assert.IsTrue(money.Rubles >= 0 && money.Rubles < 100, "Рубли должны быть в пределах 0-99.");
-                Assert.IsTrue(money.Kopeks >= 0 && money.Kopeks < 100, "Копейки должны быть в пределах 0-99.");
+                Assert.IsNotNull(money, "Р­Р»РµРјРµРЅС‚ РјР°СЃСЃРёРІР° Money РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°РЅ.");
+                Assert.IsTrue(money.Rubles >= 0 && money.Rubles < 100, "Р СѓР±Р»Рё РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ РІ РїСЂРµРґРµР»Р°С… 0-99.");
+                Assert.IsTrue(money.Kopeks >= 0 && money.Kopeks < 100, "РљРѕРїРµР№РєРё РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ РІ РїСЂРµРґРµР»Р°С… 0-99.");
             }
         }
 
@@ -199,7 +199,7 @@ namespace LabRab9.Tests
         {
             // Arrange
             int size = 2;
-            string input = "5\n30\n10\n45\n"; // Входные данные для рублей и копеек
+            string input = "5\n30\n10\n45\n"; // Р’С…РѕРґРЅС‹Рµ РґР°РЅРЅС‹Рµ РґР»СЏ СЂСѓР±Р»РµР№ Рё РєРѕРїРµРµРє
             var inputReader = new System.IO.StringReader(input);
             Console.SetIn(inputReader);
 
@@ -207,11 +207,11 @@ namespace LabRab9.Tests
             MoneyArray moneyArray = new MoneyArray(size);
 
             // Assert
-            Assert.AreEqual(size, moneyArray.Length, "Длина массива должна совпадать с переданным значением.");
-            Assert.AreEqual(5, moneyArray[0].Rubles, "Неверное значение рублей для первого элемента.");
-            Assert.AreEqual(30, moneyArray[0].Kopeks, "Неверное значение копеек для первого элемента.");
-            Assert.AreEqual(10, moneyArray[1].Rubles, "Неверное значение рублей для второго элемента.");
-            Assert.AreEqual(45, moneyArray[1].Kopeks, "Неверное значение копеек для второго элемента.");
+            Assert.AreEqual(size, moneyArray.Length, "Р”Р»РёРЅР° РјР°СЃСЃРёРІР° РґРѕР»Р¶РЅР° СЃРѕРІРїР°РґР°С‚СЊ СЃ РїРµСЂРµРґР°РЅРЅС‹Рј Р·РЅР°С‡РµРЅРёРµРј.");
+            Assert.AreEqual(5, moneyArray[0].Rubles, "РќРµРІРµСЂРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ СЂСѓР±Р»РµР№ РґР»СЏ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°.");
+            Assert.AreEqual(30, moneyArray[0].Kopeks, "РќРµРІРµСЂРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РєРѕРїРµРµРє РґР»СЏ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°.");
+            Assert.AreEqual(10, moneyArray[1].Rubles, "РќРµРІРµСЂРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ СЂСѓР±Р»РµР№ РґР»СЏ РІС‚РѕСЂРѕРіРѕ СЌР»РµРјРµРЅС‚Р°.");
+            Assert.AreEqual(45, moneyArray[1].Kopeks, "РќРµРІРµСЂРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РєРѕРїРµРµРє РґР»СЏ РІС‚РѕСЂРѕРіРѕ СЌР»РµРјРµРЅС‚Р°.");
         }
 
         [TestMethod]
@@ -219,7 +219,7 @@ namespace LabRab9.Tests
         {
             // Arrange
             int size = 1;
-            string input = "-1\nabc\n20\n50\n"; // Неверный ввод для рублей и копеек
+            string input = "-1\nabc\n20\n50\n"; // РќРµРІРµСЂРЅС‹Р№ РІРІРѕРґ РґР»СЏ СЂСѓР±Р»РµР№ Рё РєРѕРїРµРµРє
             var inputReader = new System.IO.StringReader(input);
             Console.SetIn(inputReader);
 
@@ -227,8 +227,8 @@ namespace LabRab9.Tests
             MoneyArray moneyArray = new MoneyArray(size);
 
             // Assert
-            Assert.AreEqual(20, moneyArray[0].Rubles, "Рубли должны совпадать с корректным введенным значением.");
-            Assert.AreEqual(50, moneyArray[0].Kopeks, "Копейки должны совпадать с корректным введенным значением.");
+            Assert.AreEqual(20, moneyArray[0].Rubles, "Р СѓР±Р»Рё РґРѕР»Р¶РЅС‹ СЃРѕРІРїР°РґР°С‚СЊ СЃ РєРѕСЂСЂРµРєС‚РЅС‹Рј РІРІРµРґРµРЅРЅС‹Рј Р·РЅР°С‡РµРЅРёРµРј.");
+            Assert.AreEqual(50, moneyArray[0].Kopeks, "РљРѕРїРµР№РєРё РґРѕР»Р¶РЅС‹ СЃРѕРІРїР°РґР°С‚СЊ СЃ РєРѕСЂСЂРµРєС‚РЅС‹Рј РІРІРµРґРµРЅРЅС‹Рј Р·РЅР°С‡РµРЅРёРµРј.");
         }
 
         [TestMethod]
@@ -236,7 +236,7 @@ namespace LabRab9.Tests
         {
             // Arrange
             int size = 1;
-            string input = "10\n-1\n200\n75\n"; // Неверный ввод для копеек
+            string input = "10\n-1\n200\n75\n"; // РќРµРІРµСЂРЅС‹Р№ РІРІРѕРґ РґР»СЏ РєРѕРїРµРµРє
             var inputReader = new System.IO.StringReader(input);
             Console.SetIn(inputReader);
 
@@ -244,8 +244,8 @@ namespace LabRab9.Tests
             MoneyArray moneyArray = new MoneyArray(size);
 
             // Assert
-            Assert.AreEqual(10, moneyArray[0].Rubles, "Рубли должны совпадать с введенным значением.");
-            Assert.AreEqual(75, moneyArray[0].Kopeks, "Копейки должны совпадать с корректным введенным значением.");
+            Assert.AreEqual(10, moneyArray[0].Rubles, "Р СѓР±Р»Рё РґРѕР»Р¶РЅС‹ СЃРѕРІРїР°РґР°С‚СЊ СЃ РІРІРµРґРµРЅРЅС‹Рј Р·РЅР°С‡РµРЅРёРµРј.");
+            Assert.AreEqual(75, moneyArray[0].Kopeks, "РљРѕРїРµР№РєРё РґРѕР»Р¶РЅС‹ СЃРѕРІРїР°РґР°С‚СЊ СЃ РєРѕСЂСЂРµРєС‚РЅС‹Рј РІРІРµРґРµРЅРЅС‹Рј Р·РЅР°С‡РµРЅРёРµРј.");
         }
 
         [TestMethod]
@@ -259,7 +259,7 @@ namespace LabRab9.Tests
             MoneyArray moneyArray = new MoneyArray(size, rnd);
 
             // Assert
-            Assert.AreEqual(initialCount + size, MoneyArray.GetObjectCount(), "Количество объектов Money должно увеличиваться на размер массива.");
+            Assert.AreEqual(initialCount + size, MoneyArray.GetObjectCount(), "РљРѕР»РёС‡РµСЃС‚РІРѕ РѕР±СЉРµРєС‚РѕРІ Money РґРѕР»Р¶РЅРѕ СѓРІРµР»РёС‡РёРІР°С‚СЊСЃСЏ РЅР° СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР°.");
         }
 
         [TestMethod]
@@ -276,7 +276,7 @@ namespace LabRab9.Tests
             MoneyArray moneyArray = new MoneyArray(size);
 
             // Assert
-            Assert.AreEqual(initialCount + size, MoneyArray.GetObjectCount(), "Количество объектов Money должно увеличиваться на размер массива.");
+            Assert.AreEqual(initialCount + size, MoneyArray.GetObjectCount(), "РљРѕР»РёС‡РµСЃС‚РІРѕ РѕР±СЉРµРєС‚РѕРІ Money РґРѕР»Р¶РЅРѕ СѓРІРµР»РёС‡РёРІР°С‚СЊСЃСЏ РЅР° СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР°.");
         }
         [TestMethod]
         public void Display_PrintsAllElementsToConsole()
@@ -295,8 +295,8 @@ namespace LabRab9.Tests
                 moneyArray.Display();
 
                 // Assert
-                string expectedOutput = "Элемент 1: 5 руб. 50 коп.\r\nЭлемент 2: 2 руб. 30 коп.\r\nЭлемент 3: 10 руб. 80 коп.\r\n";
-                Assert.AreEqual(expectedOutput, sw.ToString(), "Display должен корректно выводить элементы массива.");
+                string expectedOutput = "Р­Р»РµРјРµРЅС‚ 1: 5 СЂСѓР±. 50 РєРѕРї.\r\nР­Р»РµРјРµРЅС‚ 2: 2 СЂСѓР±. 30 РєРѕРї.\r\nР­Р»РµРјРµРЅС‚ 3: 10 СЂСѓР±. 80 РєРѕРї.\r\n";
+                Assert.AreEqual(expectedOutput, sw.ToString(), "Display РґРѕР»Р¶РµРЅ РєРѕСЂСЂРµРєС‚РЅРѕ РІС‹РІРѕРґРёС‚СЊ СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР°.");
             }
         }
 
@@ -313,8 +313,8 @@ namespace LabRab9.Tests
             Money minMoney = moneyArray.GetMin();
 
             // Assert
-            Assert.AreEqual(2, minMoney.Rubles, "Метод GetMin должен возвращать элемент с минимальным значением рублей.");
-            Assert.AreEqual(30, minMoney.Kopeks, "Метод GetMin должен возвращать элемент с минимальным значением копеек.");
+            Assert.AreEqual(2, minMoney.Rubles, "РњРµС‚РѕРґ GetMin РґРѕР»Р¶РµРЅ РІРѕР·РІСЂР°С‰Р°С‚СЊ СЌР»РµРјРµРЅС‚ СЃ РјРёРЅРёРјР°Р»СЊРЅС‹Рј Р·РЅР°С‡РµРЅРёРµРј СЂСѓР±Р»РµР№.");
+            Assert.AreEqual(30, minMoney.Kopeks, "РњРµС‚РѕРґ GetMin РґРѕР»Р¶РµРЅ РІРѕР·РІСЂР°С‰Р°С‚СЊ СЌР»РµРјРµРЅС‚ СЃ РјРёРЅРёРјР°Р»СЊРЅС‹Рј Р·РЅР°С‡РµРЅРёРµРј РєРѕРїРµРµРє.");
         }
 
         [TestMethod]
@@ -328,8 +328,8 @@ namespace LabRab9.Tests
             Money minMoney = moneyArray.GetMin();
 
             // Assert
-            Assert.AreEqual(5, minMoney.Rubles, "Метод GetMin должен корректно обрабатывать массив с одним элементом.");
-            Assert.AreEqual(50, minMoney.Kopeks, "Метод GetMin должен корректно обрабатывать массив с одним элементом.");
+            Assert.AreEqual(5, minMoney.Rubles, "РњРµС‚РѕРґ GetMin РґРѕР»Р¶РµРЅ РєРѕСЂСЂРµРєС‚РЅРѕ РѕР±СЂР°Р±Р°С‚С‹РІР°С‚СЊ РјР°СЃСЃРёРІ СЃ РѕРґРЅРёРј СЌР»РµРјРµРЅС‚РѕРј.");
+            Assert.AreEqual(50, minMoney.Kopeks, "РњРµС‚РѕРґ GetMin РґРѕР»Р¶РµРЅ РєРѕСЂСЂРµРєС‚РЅРѕ РѕР±СЂР°Р±Р°С‚С‹РІР°С‚СЊ РјР°СЃСЃРёРІ СЃ РѕРґРЅРёРј СЌР»РµРјРµРЅС‚РѕРј.");
         }
 
         [TestMethod]
@@ -345,8 +345,8 @@ namespace LabRab9.Tests
             Money result = moneyArray[1];
 
             // Assert
-            Assert.AreEqual(2, result.Rubles, "Индексатор должен возвращать корректное значение для валидного индекса.");
-            Assert.AreEqual(30, result.Kopeks, "Индексатор должен возвращать корректное значение для валидного индекса.");
+            Assert.AreEqual(2, result.Rubles, "РРЅРґРµРєСЃР°С‚РѕСЂ РґРѕР»Р¶РµРЅ РІРѕР·РІСЂР°С‰Р°С‚СЊ РєРѕСЂСЂРµРєС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РґР»СЏ РІР°Р»РёРґРЅРѕРіРѕ РёРЅРґРµРєСЃР°.");
+            Assert.AreEqual(30, result.Kopeks, "РРЅРґРµРєСЃР°С‚РѕСЂ РґРѕР»Р¶РµРЅ РІРѕР·РІСЂР°С‰Р°С‚СЊ РєРѕСЂСЂРµРєС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РґР»СЏ РІР°Р»РёРґРЅРѕРіРѕ РёРЅРґРµРєСЃР°.");
         }
 
         [TestMethod]
@@ -360,8 +360,8 @@ namespace LabRab9.Tests
             moneyArray[1] = newMoney;
 
             // Assert
-            Assert.AreEqual(7, moneyArray[1].Rubles, "Индексатор должен корректно устанавливать значение по индексу.");
-            Assert.AreEqual(25, moneyArray[1].Kopeks, "Индексатор должен корректно устанавливать значение по индексу.");
+            Assert.AreEqual(7, moneyArray[1].Rubles, "РРЅРґРµРєСЃР°С‚РѕСЂ РґРѕР»Р¶РµРЅ РєРѕСЂСЂРµРєС‚РЅРѕ СѓСЃС‚Р°РЅР°РІР»РёРІР°С‚СЊ Р·РЅР°С‡РµРЅРёРµ РїРѕ РёРЅРґРµРєСЃСѓ.");
+            Assert.AreEqual(25, moneyArray[1].Kopeks, "РРЅРґРµРєСЃР°С‚РѕСЂ РґРѕР»Р¶РµРЅ РєРѕСЂСЂРµРєС‚РЅРѕ СѓСЃС‚Р°РЅР°РІР»РёРІР°С‚СЊ Р·РЅР°С‡РµРЅРёРµ РїРѕ РёРЅРґРµРєСЃСѓ.");
         }
 
         [TestMethod]
@@ -372,9 +372,9 @@ namespace LabRab9.Tests
             var moneyArray = new MoneyArray(3);
 
             // Act
-            var result = moneyArray[5]; // Обращение к несуществующему индексу
+            var result = moneyArray[5]; // РћР±СЂР°С‰РµРЅРёРµ Рє РЅРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РµРјСѓ РёРЅРґРµРєСЃСѓ
 
-            // Assert — проверка исключения
+            // Assert вЂ” РїСЂРѕРІРµСЂРєР° РёСЃРєР»СЋС‡РµРЅРёСЏ
         }
 
         [TestMethod]
@@ -386,9 +386,9 @@ namespace LabRab9.Tests
             var newMoney = new Money(7, 25);
 
             // Act
-            moneyArray[5] = newMoney; // Попытка установить значение по несуществующему индексу
+            moneyArray[5] = newMoney; // РџРѕРїС‹С‚РєР° СѓСЃС‚Р°РЅРѕРІРёС‚СЊ Р·РЅР°С‡РµРЅРёРµ РїРѕ РЅРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РµРјСѓ РёРЅРґРµРєСЃСѓ
 
-            // Assert — проверка исключения
+            // Assert вЂ” РїСЂРѕРІРµСЂРєР° РёСЃРєР»СЋС‡РµРЅРёСЏ
         }
 
         [TestMethod]
@@ -403,7 +403,7 @@ namespace LabRab9.Tests
             int finalCount = MoneyArray.GetObjectCount();
 
             // Assert
-            Assert.AreEqual(initialCount + 8, finalCount, "Метод GetObjectCount должен возвращать корректное количество созданных объектов Money.");
+            Assert.AreEqual(initialCount + 8, finalCount, "РњРµС‚РѕРґ GetObjectCount РґРѕР»Р¶РµРЅ РІРѕР·РІСЂР°С‰Р°С‚СЊ РєРѕСЂСЂРµРєС‚РЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРѕР·РґР°РЅРЅС‹С… РѕР±СЉРµРєС‚РѕРІ Money.");
         }
     }
     [TestClass]
@@ -419,7 +419,7 @@ namespace LabRab9.Tests
             money.Rubles = 50;
 
             // Assert
-            Assert.AreEqual(50, money.Rubles, "Свойство Rubles должно корректно присваивать положительное значение.");
+            Assert.AreEqual(50, money.Rubles, "РЎРІРѕР№СЃС‚РІРѕ Rubles РґРѕР»Р¶РЅРѕ РєРѕСЂСЂРµРєС‚РЅРѕ РїСЂРёСЃРІР°РёРІР°С‚СЊ РїРѕР»РѕР¶РёС‚РµР»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ.");
         }
 
         [TestMethod]
@@ -432,7 +432,7 @@ namespace LabRab9.Tests
             money.Rubles = -5;
 
             // Assert
-            Assert.AreEqual(0, money.Rubles, "Свойство Rubles должно присваивать значение 0, если было указано отрицательное значение.");
+            Assert.AreEqual(0, money.Rubles, "РЎРІРѕР№СЃС‚РІРѕ Rubles РґРѕР»Р¶РЅРѕ РїСЂРёСЃРІР°РёРІР°С‚СЊ Р·РЅР°С‡РµРЅРёРµ 0, РµСЃР»Рё Р±С‹Р»Рѕ СѓРєР°Р·Р°РЅРѕ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ.");
         }
 
         [TestMethod]
@@ -445,7 +445,7 @@ namespace LabRab9.Tests
             money.Kopeks = 50;
 
             // Assert
-            Assert.AreEqual(50, money.Kopeks, "Свойство Kopeks должно корректно присваивать значение, находящееся в диапазоне от 0 до 99.");
+            Assert.AreEqual(50, money.Kopeks, "РЎРІРѕР№СЃС‚РІРѕ Kopeks РґРѕР»Р¶РЅРѕ РєРѕСЂСЂРµРєС‚РЅРѕ РїСЂРёСЃРІР°РёРІР°С‚СЊ Р·РЅР°С‡РµРЅРёРµ, РЅР°С…РѕРґСЏС‰РµРµСЃСЏ РІ РґРёР°РїР°Р·РѕРЅРµ РѕС‚ 0 РґРѕ 99.");
         }
 
         [TestMethod]
@@ -458,7 +458,7 @@ namespace LabRab9.Tests
             money.Kopeks = 150;
 
             // Assert
-            Assert.AreEqual(0, money.Kopeks, "Свойство Kopeks должно присваивать значение 0, если было указано значение вне диапазона от 0 до 99.");
+            Assert.AreEqual(0, money.Kopeks, "РЎРІРѕР№СЃС‚РІРѕ Kopeks РґРѕР»Р¶РЅРѕ РїСЂРёСЃРІР°РёРІР°С‚СЊ Р·РЅР°С‡РµРЅРёРµ 0, РµСЃР»Рё Р±С‹Р»Рѕ СѓРєР°Р·Р°РЅРѕ Р·РЅР°С‡РµРЅРёРµ РІРЅРµ РґРёР°РїР°Р·РѕРЅР° РѕС‚ 0 РґРѕ 99.");
         }
 
         [TestMethod]
@@ -468,8 +468,8 @@ namespace LabRab9.Tests
             var money = new Money(5, 150);
 
             // Assert
-            Assert.AreEqual(6, money.Rubles, "Конструктор должен корректно обрабатывать значения рублей и копеек, складывая их.");
-            Assert.AreEqual(50, money.Kopeks, "Конструктор должен корректно обрабатывать значения рублей и копеек, учитывая перенос значений.");
+            Assert.AreEqual(6, money.Rubles, "РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РґРѕР»Р¶РµРЅ РєРѕСЂСЂРµРєС‚РЅРѕ РѕР±СЂР°Р±Р°С‚С‹РІР°С‚СЊ Р·РЅР°С‡РµРЅРёСЏ СЂСѓР±Р»РµР№ Рё РєРѕРїРµРµРє, СЃРєР»Р°РґС‹РІР°СЏ РёС….");
+            Assert.AreEqual(50, money.Kopeks, "РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РґРѕР»Р¶РµРЅ РєРѕСЂСЂРµРєС‚РЅРѕ РѕР±СЂР°Р±Р°С‚С‹РІР°С‚СЊ Р·РЅР°С‡РµРЅРёСЏ СЂСѓР±Р»РµР№ Рё РєРѕРїРµРµРє, СѓС‡РёС‚С‹РІР°СЏ РїРµСЂРµРЅРѕСЃ Р·РЅР°С‡РµРЅРёР№.");
         }
 
         [TestMethod]
@@ -479,8 +479,8 @@ namespace LabRab9.Tests
             var money = new Money();
 
             // Assert
-            Assert.AreEqual(0, money.Rubles, "Конструктор по умолчанию должен присваивать 0 рублям.");
-            Assert.AreEqual(0, money.Kopeks, "Конструктор по умолчанию должен присваивать 0 копейкам.");
+            Assert.AreEqual(0, money.Rubles, "РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РґРѕР»Р¶РµРЅ РїСЂРёСЃРІР°РёРІР°С‚СЊ 0 СЂСѓР±Р»СЏРј.");
+            Assert.AreEqual(0, money.Kopeks, "РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РґРѕР»Р¶РµРЅ РїСЂРёСЃРІР°РёРІР°С‚СЊ 0 РєРѕРїРµР№РєР°Рј.");
         }
 
         [TestMethod]
@@ -494,8 +494,8 @@ namespace LabRab9.Tests
             var result = Money.AddKopeks(money, additionalKopeks);
 
             // Assert
-            Assert.AreEqual(4, result.Rubles, "Метод AddKopeks должен корректно увеличивать количество рублей.");
-            Assert.AreEqual(25, result.Kopeks, "Метод AddKopeks должен корректно учитывать перенос копеек.");
+            Assert.AreEqual(4, result.Rubles, "РњРµС‚РѕРґ AddKopeks РґРѕР»Р¶РµРЅ РєРѕСЂСЂРµРєС‚РЅРѕ СѓРІРµР»РёС‡РёРІР°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ СЂСѓР±Р»РµР№.");
+            Assert.AreEqual(25, result.Kopeks, "РњРµС‚РѕРґ AddKopeks РґРѕР»Р¶РµРЅ РєРѕСЂСЂРµРєС‚РЅРѕ СѓС‡РёС‚С‹РІР°С‚СЊ РїРµСЂРµРЅРѕСЃ РєРѕРїРµРµРє.");
         }
 
         [TestMethod]
@@ -512,7 +512,7 @@ namespace LabRab9.Tests
 
                 // Assert
                 string expectedOutput = "Money: 5 rubles, 50 kopeks\r\n";
-                Assert.AreEqual(expectedOutput, sw.ToString(), "Метод Display должен корректно выводить количество рублей и копеек.");
+                Assert.AreEqual(expectedOutput, sw.ToString(), "РњРµС‚РѕРґ Display РґРѕР»Р¶РµРЅ РєРѕСЂСЂРµРєС‚РЅРѕ РІС‹РІРѕРґРёС‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ СЂСѓР±Р»РµР№ Рё РєРѕРїРµРµРє.");
             }
         }
         [TestMethod]
@@ -525,8 +525,8 @@ namespace LabRab9.Tests
             var result = money.AddKopeks(75);
 
             // Assert
-            Assert.AreEqual(4, result.Rubles, "Метод AddKopeks должен корректно увеличивать количество рублей.");
-            Assert.AreEqual(25, result.Kopeks, "Метод AddKopeks должен корректно учитывать перенос копеек.");
+            Assert.AreEqual(4, result.Rubles, "РњРµС‚РѕРґ AddKopeks РґРѕР»Р¶РµРЅ РєРѕСЂСЂРµРєС‚РЅРѕ СѓРІРµР»РёС‡РёРІР°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ СЂСѓР±Р»РµР№.");
+            Assert.AreEqual(25, result.Kopeks, "РњРµС‚РѕРґ AddKopeks РґРѕР»Р¶РµРЅ РєРѕСЂСЂРµРєС‚РЅРѕ СѓС‡РёС‚С‹РІР°С‚СЊ РїРµСЂРµРЅРѕСЃ РєРѕРїРµРµРє.");
         }
 
         [TestMethod]
@@ -539,8 +539,8 @@ namespace LabRab9.Tests
             money++;
 
             // Assert
-            Assert.AreEqual(4, money.Rubles, "Оператор инкремента должен корректно переносить копейки в рубли.");
-            Assert.AreEqual(0, money.Kopeks, "Оператор инкремента должен корректно устанавливать копейки в 0 после переноса.");
+            Assert.AreEqual(4, money.Rubles, "РћРїРµСЂР°С‚РѕСЂ РёРЅРєСЂРµРјРµРЅС‚Р° РґРѕР»Р¶РµРЅ РєРѕСЂСЂРµРєС‚РЅРѕ РїРµСЂРµРЅРѕСЃРёС‚СЊ РєРѕРїРµР№РєРё РІ СЂСѓР±Р»Рё.");
+            Assert.AreEqual(0, money.Kopeks, "РћРїРµСЂР°С‚РѕСЂ РёРЅРєСЂРµРјРµРЅС‚Р° РґРѕР»Р¶РµРЅ РєРѕСЂСЂРµРєС‚РЅРѕ СѓСЃС‚Р°РЅР°РІР»РёРІР°С‚СЊ РєРѕРїРµР№РєРё РІ 0 РїРѕСЃР»Рµ РїРµСЂРµРЅРѕСЃР°.");
         }
 
         [TestMethod]
@@ -553,8 +553,8 @@ namespace LabRab9.Tests
             money--;
 
             // Assert
-            Assert.AreEqual(2, money.Rubles, "Оператор декремента должен уменьшать рубли на 1, если копейки были равны 0.");
-            Assert.AreEqual(99, money.Kopeks, "Оператор декремента должен корректно устанавливать копейки в 99, если было заимствование.");
+            Assert.AreEqual(2, money.Rubles, "РћРїРµСЂР°С‚РѕСЂ РґРµРєСЂРµРјРµРЅС‚Р° РґРѕР»Р¶РµРЅ СѓРјРµРЅСЊС€Р°С‚СЊ СЂСѓР±Р»Рё РЅР° 1, РµСЃР»Рё РєРѕРїРµР№РєРё Р±С‹Р»Рё СЂР°РІРЅС‹ 0.");
+            Assert.AreEqual(99, money.Kopeks, "РћРїРµСЂР°С‚РѕСЂ РґРµРєСЂРµРјРµРЅС‚Р° РґРѕР»Р¶РµРЅ РєРѕСЂСЂРµРєС‚РЅРѕ СѓСЃС‚Р°РЅР°РІР»РёРІР°С‚СЊ РєРѕРїРµР№РєРё РІ 99, РµСЃР»Рё Р±С‹Р»Рѕ Р·Р°РёРјСЃС‚РІРѕРІР°РЅРёРµ.");
         }
 
         [TestMethod]
@@ -567,8 +567,8 @@ namespace LabRab9.Tests
             money--;
 
             // Assert
-            Assert.AreEqual(0, money.Rubles, "Оператор декремента не должен допускать отрицательных значений рублей.");
-            Assert.AreEqual(0, money.Kopeks, "Оператор декремента не должен допускать отрицательных значений копеек.");
+            Assert.AreEqual(0, money.Rubles, "РћРїРµСЂР°С‚РѕСЂ РґРµРєСЂРµРјРµРЅС‚Р° РЅРµ РґРѕР»Р¶РµРЅ РґРѕРїСѓСЃРєР°С‚СЊ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹С… Р·РЅР°С‡РµРЅРёР№ СЂСѓР±Р»РµР№.");
+            Assert.AreEqual(0, money.Kopeks, "РћРїРµСЂР°С‚РѕСЂ РґРµРєСЂРµРјРµРЅС‚Р° РЅРµ РґРѕР»Р¶РµРЅ РґРѕРїСѓСЃРєР°С‚СЊ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹С… Р·РЅР°С‡РµРЅРёР№ РєРѕРїРµРµРє.");
         }
 
         [TestMethod]
@@ -581,7 +581,7 @@ namespace LabRab9.Tests
             int rubles = (int)money;
 
             // Assert
-            Assert.AreEqual(5, rubles, "Явное приведение к int должно возвращать только рубли.");
+            Assert.AreEqual(5, rubles, "РЇРІРЅРѕРµ РїСЂРёРІРµРґРµРЅРёРµ Рє int РґРѕР»Р¶РЅРѕ РІРѕР·РІСЂР°С‰Р°С‚СЊ С‚РѕР»СЊРєРѕ СЂСѓР±Р»Рё.");
         }
 
         [TestMethod]
@@ -594,7 +594,7 @@ namespace LabRab9.Tests
             double kopeksFraction = money;
 
             // Assert
-            Assert.AreEqual(0.5, kopeksFraction, 0.001, "Неявное приведение к double должно возвращать копейки в виде дробного значения.");
+            Assert.AreEqual(0.5, kopeksFraction, 0.001, "РќРµСЏРІРЅРѕРµ РїСЂРёРІРµРґРµРЅРёРµ Рє double РґРѕР»Р¶РЅРѕ РІРѕР·РІСЂР°С‰Р°С‚СЊ РєРѕРїРµР№РєРё РІ РІРёРґРµ РґСЂРѕР±РЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ.");
         }
 
         [TestMethod]
@@ -608,22 +608,22 @@ namespace LabRab9.Tests
             var result = money + additionalKopeks;
 
             // Assert
-            Assert.AreEqual(3, result.Rubles, "Оператор + должен корректно добавлять рубли.");
-            Assert.AreEqual(10, result.Kopeks, "Оператор + должен корректно добавлять копейки с учетом переноса.");
+            Assert.AreEqual(3, result.Rubles, "РћРїРµСЂР°С‚РѕСЂ + РґРѕР»Р¶РµРЅ РєРѕСЂСЂРµРєС‚РЅРѕ РґРѕР±Р°РІР»СЏС‚СЊ СЂСѓР±Р»Рё.");
+            Assert.AreEqual(10, result.Kopeks, "РћРїРµСЂР°С‚РѕСЂ + РґРѕР»Р¶РµРЅ РєРѕСЂСЂРµРєС‚РЅРѕ РґРѕР±Р°РІР»СЏС‚СЊ РєРѕРїРµР№РєРё СЃ СѓС‡РµС‚РѕРј РїРµСЂРµРЅРѕСЃР°.");
         }
         [TestMethod]
         public void AdditionOperator_IntPlusMoney_AddsValueCorrectly()
         {
             // Arrange
-            int additionalKopeks = 150; // 1 рубль и 50 копеек
+            int additionalKopeks = 150; // 1 СЂСѓР±Р»СЊ Рё 50 РєРѕРїРµРµРє
             Money money = new Money(3, 25);
 
             // Act
             Money result = additionalKopeks + money;
 
             // Assert
-            Assert.AreEqual(4, result.Rubles, "Рубли должны корректно увеличиваться на значение от сложения.");
-            Assert.AreEqual(75, result.Kopeks, "Копейки должны корректно учитывать перенос при сложении.");
+            Assert.AreEqual(4, result.Rubles, "Р СѓР±Р»Рё РґРѕР»Р¶РЅС‹ РєРѕСЂСЂРµРєС‚РЅРѕ СѓРІРµР»РёС‡РёРІР°С‚СЊСЃСЏ РЅР° Р·РЅР°С‡РµРЅРёРµ РѕС‚ СЃР»РѕР¶РµРЅРёСЏ.");
+            Assert.AreEqual(75, result.Kopeks, "РљРѕРїРµР№РєРё РґРѕР»Р¶РЅС‹ РєРѕСЂСЂРµРєС‚РЅРѕ СѓС‡РёС‚С‹РІР°С‚СЊ РїРµСЂРµРЅРѕСЃ РїСЂРё СЃР»РѕР¶РµРЅРёРё.");
         }
 
         [TestMethod]
@@ -637,8 +637,8 @@ namespace LabRab9.Tests
             Money result = money - subtractedKopeks;
 
             // Assert
-            Assert.AreEqual(4, result.Rubles, "Рубли должны корректно уменьшаться при вычитании.");
-            Assert.AreEqual(75, result.Kopeks, "Копейки должны корректно учитывать перенос при вычитании.");
+            Assert.AreEqual(4, result.Rubles, "Р СѓР±Р»Рё РґРѕР»Р¶РЅС‹ РєРѕСЂСЂРµРєС‚РЅРѕ СѓРјРµРЅСЊС€Р°С‚СЊСЃСЏ РїСЂРё РІС‹С‡РёС‚Р°РЅРёРё.");
+            Assert.AreEqual(75, result.Kopeks, "РљРѕРїРµР№РєРё РґРѕР»Р¶РЅС‹ РєРѕСЂСЂРµРєС‚РЅРѕ СѓС‡РёС‚С‹РІР°С‚СЊ РїРµСЂРµРЅРѕСЃ РїСЂРё РІС‹С‡РёС‚Р°РЅРёРё.");
         }
 
         [TestMethod]
@@ -646,14 +646,14 @@ namespace LabRab9.Tests
         {
             // Arrange
             Money money = new Money(1, 20);
-            int subtractedKopeks = 150; // Больше, чем текущее количество денег
+            int subtractedKopeks = 150; // Р‘РѕР»СЊС€Рµ, С‡РµРј С‚РµРєСѓС‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РґРµРЅРµРі
 
             // Act
             Money result = money - subtractedKopeks;
 
             // Assert
-            Assert.AreEqual(0, result.Rubles, "Если результат отрицательный, рубли должны быть установлены в 0.");
-            Assert.AreEqual(0, result.Kopeks, "Если результат отрицательный, копейки должны быть установлены в 0.");
+            Assert.AreEqual(0, result.Rubles, "Р•СЃР»Рё СЂРµР·СѓР»СЊС‚Р°С‚ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Р№, СЂСѓР±Р»Рё РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ СѓСЃС‚Р°РЅРѕРІР»РµРЅС‹ РІ 0.");
+            Assert.AreEqual(0, result.Kopeks, "Р•СЃР»Рё СЂРµР·СѓР»СЊС‚Р°С‚ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Р№, РєРѕРїРµР№РєРё РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ СѓСЃС‚Р°РЅРѕРІР»РµРЅС‹ РІ 0.");
         }
 
         [TestMethod]
@@ -667,8 +667,8 @@ namespace LabRab9.Tests
             Money result = rublesToSubtract - money;
 
             // Assert
-            Assert.AreEqual(6, result.Rubles, "Рубли должны корректно уменьшаться при вычитании значения объекта Money.");
-            Assert.AreEqual(50, result.Kopeks, "Копейки должны корректно рассчитываться при вычитании.");
+            Assert.AreEqual(6, result.Rubles, "Р СѓР±Р»Рё РґРѕР»Р¶РЅС‹ РєРѕСЂСЂРµРєС‚РЅРѕ СѓРјРµРЅСЊС€Р°С‚СЊСЃСЏ РїСЂРё РІС‹С‡РёС‚Р°РЅРёРё Р·РЅР°С‡РµРЅРёСЏ РѕР±СЉРµРєС‚Р° Money.");
+            Assert.AreEqual(50, result.Kopeks, "РљРѕРїРµР№РєРё РґРѕР»Р¶РЅС‹ РєРѕСЂСЂРµРєС‚РЅРѕ СЂР°СЃСЃС‡РёС‚С‹РІР°С‚СЊСЃСЏ РїСЂРё РІС‹С‡РёС‚Р°РЅРёРё.");
         }
 
         [TestMethod]
@@ -682,8 +682,8 @@ namespace LabRab9.Tests
             Money result = rublesToSubtract - money;
 
             // Assert
-            Assert.AreEqual(0, result.Rubles, "Если результат отрицательный, рубли должны быть установлены в 0.");
-            Assert.AreEqual(0, result.Kopeks, "Если результат отрицательный, копейки должны быть установлены в 0.");
+            Assert.AreEqual(0, result.Rubles, "Р•СЃР»Рё СЂРµР·СѓР»СЊС‚Р°С‚ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Р№, СЂСѓР±Р»Рё РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ СѓСЃС‚Р°РЅРѕРІР»РµРЅС‹ РІ 0.");
+            Assert.AreEqual(0, result.Kopeks, "Р•СЃР»Рё СЂРµР·СѓР»СЊС‚Р°С‚ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Р№, РєРѕРїРµР№РєРё РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ СѓСЃС‚Р°РЅРѕРІР»РµРЅС‹ РІ 0.");
         }
 
         [TestMethod]
@@ -698,7 +698,7 @@ namespace LabRab9.Tests
             int finalCount = Money.ObjectCount;
 
             // Assert
-            Assert.AreEqual(initialCount + 2, finalCount, "Счетчик объектов должен увеличиваться при создании каждого нового объекта Money.");
+            Assert.AreEqual(initialCount + 2, finalCount, "РЎС‡РµС‚С‡РёРє РѕР±СЉРµРєС‚РѕРІ РґРѕР»Р¶РµРЅ СѓРІРµР»РёС‡РёРІР°С‚СЊСЃСЏ РїСЂРё СЃРѕР·РґР°РЅРёРё РєР°Р¶РґРѕРіРѕ РЅРѕРІРѕРіРѕ РѕР±СЉРµРєС‚Р° Money.");
         }
     }
 }
