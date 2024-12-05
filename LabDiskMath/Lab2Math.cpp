@@ -20,14 +20,14 @@ void generateTruthTable(vector<vector<int>> & table) {
 }
 vector<int> inputFunctionValues(int rows) {
     vector<int> values(rows);
-    cout << "Ââåäèòå çíà÷åíèÿ ôóíêöèè (0 èëè 1) äëÿ êàæäîé ñòðîêè òàáëèöû èñòèííîñòè:\n";
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ (0 Ð¸Ð»Ð¸ 1) Ð´Ð»Ñ ÐºÐ°Ð¶Ð´Ð¾Ð¹ ÑÑ‚Ñ€Ð¾ÐºÐ¸ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹ Ð¸ÑÑ‚Ð¸Ð½Ð½Ð¾ÑÑ‚Ð¸:\n";
     for (int i = 0; i < rows; i++) {
         int values1 = -1;
         while (values1 != 0 && values1 != 1) {  
-            cout << "Ââåäèòå çíà÷åíèå äëÿ ñòðîêè " << i + 1 << " (0 èëè 1): ";
+            cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð´Ð»Ñ ÑÑ‚Ñ€Ð¾ÐºÐ¸ " << i + 1 << " (0 Ð¸Ð»Ð¸ 1): ";
             cin >> values1;
             if (values1 != 0 && values1 != 1) {
-            cout << "Íåâåðíûé ââîä. Ïîâòîðèòå ïîïûòêó.\n";
+            cout << "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð²Ð²Ð¾Ð´. ÐŸÐ¾Ð²Ñ‚Ð¾Ñ€Ð¸Ñ‚Ðµ Ð¿Ð¾Ð¿Ñ‹Ñ‚ÐºÑƒ.\n";
             }
         }
         values[i]=values1;
@@ -157,11 +157,11 @@ int main() {
     system("cls");
     int n;
     
-    cout << "Ââåäèòå êîëè÷åñòâî ïåðåìåííûõ (n <= 5): ";
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ñ‹Ñ… (n <= 5): ";
     cin >> n;
 
     if (n < 1 || n > 5) {
-        cout << "Îøèáêà: n äîëæíî áûòü â äèàïàçîíå îò 1 äî 5.\n";
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ°: n Ð´Ð¾Ð»Ð¶Ð½Ð¾ Ð±Ñ‹Ñ‚ÑŒ Ð² Ð´Ð¸Ð°Ð¿Ð°Ð·Ð¾Ð½Ðµ Ð¾Ñ‚ 1 Ð´Ð¾ 5.\n";
         return 1;
     }
     
@@ -171,7 +171,7 @@ int main() {
     vector<vector<int>> table(rows, vector<int>(n, 0));
     generateTruthTable(table);   
 
-    cout << "Òàáëèöà èñòèííîñòè:\n";
+    cout << "Ð¢Ð°Ð±Ð»Ð¸Ñ†Ð° Ð¸ÑÑ‚Ð¸Ð½Ð½Ð¾ÑÑ‚Ð¸:\n";
     for (const auto& row : table) {
         for (int val : row) {
             cout << val << " ";
@@ -180,11 +180,11 @@ int main() {
     }
 
     choise=0;
-    cout << "Âûáåðèòå ñïîñîá çàäàíèÿ çíà÷åíèé ôóíêöèè:\n1 - ââîä ñ êëàâèàòóðû\n2 - ñëó÷àéíîå çàïîëíåíèå\nÂàø âûáîð: ";
+    cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ ÑÐ¿Ð¾ÑÐ¾Ð± Ð·Ð°Ð´Ð°Ð½Ð¸Ñ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ð¹ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸:\n1 - Ð²Ð²Ð¾Ð´ Ñ ÐºÐ»Ð°Ð²Ð¸Ð°Ñ‚ÑƒÑ€Ñ‹\n2 - ÑÐ»ÑƒÑ‡Ð°Ð¹Ð½Ð¾Ðµ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ðµ\nÐ’Ð°Ñˆ Ð²Ñ‹Ð±Ð¾Ñ€: ";
     while (choise != 1 && choise != 2) {
         cin >> choise;
     if (choise != 1 && choise != 2) {
-        cout << "Íåâåðíûé âûáîð. Ïîâòîðèòå ââîä: ";
+        cout << "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð²Ñ‹Ð±Ð¾Ñ€. ÐŸÐ¾Ð²Ñ‚Ð¾Ñ€Ð¸Ñ‚Ðµ Ð²Ð²Ð¾Ð´: ";
     }
 }
 
@@ -201,7 +201,7 @@ int main() {
     default:
         break;
     }
-    cout<<"\n\nÒàáëèöà èñòèííîñòè è çíà÷åíèÿ ôóíêöèè"<<endl;
+    cout<<"\n\nÐ¢Ð°Ð±Ð»Ð¸Ñ†Ð° Ð¸ÑÑ‚Ð¸Ð½Ð½Ð¾ÑÑ‚Ð¸ Ð¸ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸"<<endl;
     for (int i=0;i<rows;i++) {
         for (int j=0;j<n;j++) {
             cout << table[i][j] << " ";
@@ -209,10 +209,10 @@ int main() {
         cout<<"\t"<<functionValues[i]<< endl;
         
     }
-    cout << "\nÑÄÍÔ: " << getSDNF(table, functionValues) << "\n";
-    cout << "ÑÊÍÔ: " << getSKNF(table, functionValues) << "\n";
+    cout << "\nÐ¡Ð”ÐÐ¤: " << getSDNF(table, functionValues) << "\n";
+    cout << "Ð¡ÐšÐÐ¤: " << getSKNF(table, functionValues) << "\n";
 
-    cout << "\nÌÄÍÔ: " << minimizeSDNF(table, functionValues) << "\n";
+    cout << "\nÐœÐ”ÐÐ¤: " << minimizeSDNF(table, functionValues) << "\n";
 
     return 0;
 }
