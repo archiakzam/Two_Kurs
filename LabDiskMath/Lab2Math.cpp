@@ -4,6 +4,8 @@
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
+#include<set>
+#include<map>
 #include <iomanip>
 #include <algorithm>
 using namespace std;
@@ -34,7 +36,6 @@ vector<int> inputFunctionValues(int rows) {
     }
     return values;
 }
-
 vector<int> generateRandomFunctionValues(int rows) {
     vector<int> values(rows);
     srand(time(0));
@@ -43,8 +44,6 @@ vector<int> generateRandomFunctionValues(int rows) {
     }
     return values;
 }
-
-
 string getSDNF(const vector<vector<int>>& table, const vector<int>& values) {
     string sdnf;
     for (size_t i = 0; i < values.size(); i++) {
@@ -61,7 +60,6 @@ string getSDNF(const vector<vector<int>>& table, const vector<int>& values) {
     }
     return sdnf.empty() ? "0" : sdnf;
 }
-
 
 string getSKNF(const vector<vector<int>>& table, const vector<int>& values) {
     string sknf;
@@ -81,73 +79,130 @@ string getSKNF(const vector<vector<int>>& table, const vector<int>& values) {
     return sknf.empty() ? "1" : sknf;
 }
 
+string mergeTerms(const string& term1, const string& term2, bool& merged) {
+    string result;
+    int diffCount = 0;
+    for (size_t i = 0; i < term1.size(); i++) {
+        if (term1[i] != term2[i]) {
+            diffCount++;
+            result += "-";
+        } else {
+            result += term1[i];
+        }
+    }
+    if (diffCount == 1) {
+        merged = true;
+        return result;
+    }
+    return "";
+}
 
 string minimizeSDNF(const vector<vector<int>>& table, const vector<int>& values) {
-    vector<string> primeImplicants;
+    vector<string> minterms;
 
-    
     for (size_t i = 0; i < values.size(); i++) {
         if (values[i] == 1) {
             string term = "";
             for (size_t j = 0; j < table[i].size(); j++) {
-                char variable = 'a' + j;
-                term += table[i][j] ? string(1, variable) : "!" + string(1, variable);
+                term += table[i][j] ? '1' : '0';
             }
-            primeImplicants.push_back(term);
+            minterms.push_back(term);
         }
     }
 
-    
-    bool merged;
-    do {
-        merged = false;
-        vector<string> nextImplicants;
-        vector<bool> used(primeImplicants.size(), false);
+    vector<string> primeImplicants;
+    while (!minterms.empty()) {
+        vector<string> nextTerms;
+        vector<bool> used(minterms.size(), false);
+        bool merged = false;
 
-        for (size_t i = 0; i < primeImplicants.size(); i++) {
-            for (size_t j = i + 1; j < primeImplicants.size(); j++) {
-                string mergedTerm = "";
-                int diffCount = 0;
-
-                
-                for (size_t k = 0; k < primeImplicants[i].size(); k++) {
-                    if (primeImplicants[i][k] != primeImplicants[j][k]) {
-                        diffCount++;
-                        mergedTerm += "-";
-                    } else {
-                        mergedTerm += primeImplicants[i][k];
-                    }
-                }
-
-                if (diffCount == 1) {
+        for (size_t i = 0; i < minterms.size(); i++) {
+            for (size_t j = i + 1; j < minterms.size(); j++) {
+                bool tempMerged = false;
+                string mergedTerm = mergeTerms(minterms[i], minterms[j], tempMerged);
+                if (tempMerged) {
                     merged = true;
                     used[i] = true;
                     used[j] = true;
-                    if (find(nextImplicants.begin(), nextImplicants.end(), mergedTerm) == nextImplicants.end()) {
-                        nextImplicants.push_back(mergedTerm);
+                    if (find(nextTerms.begin(), nextTerms.end(), mergedTerm) == nextTerms.end()) {
+                        nextTerms.push_back(mergedTerm);
                     }
                 }
             }
         }
 
-        for (size_t i = 0; i < primeImplicants.size(); i++) {
-            if (!used[i] && find(nextImplicants.begin(), nextImplicants.end(), primeImplicants[i]) == nextImplicants.end()) {
-                nextImplicants.push_back(primeImplicants[i]);
+        
+        for (size_t i = 0; i < minterms.size(); i++) {
+            if (!used[i] && find(primeImplicants.begin(), primeImplicants.end(), minterms[i]) == primeImplicants.end()) {
+                primeImplicants.push_back(minterms[i]);
             }
         }
 
-        primeImplicants = nextImplicants;
-    } while (merged);
+        minterms = nextTerms;
+        if (!merged) break;
+    }
 
-    
-    string mdnf;
-    for (const string& term : primeImplicants) {
-        if (!mdnf.empty()) mdnf += " v ";
-        for (char ch : term) {
-            if (ch == '-') continue; 
-            mdnf += ch;
+    map<string, set<int>> coverage;
+    for (size_t i = 0; i < table.size(); i++) {
+        if (values[i] == 1) {
+            for (const auto& implicant : primeImplicants) {
+                bool covers = true;
+                for (size_t j = 0; j < implicant.size(); j++) {
+                    if (implicant[j] == '-') continue;
+                    if (table[i][j] != (implicant[j] - '0')) {
+                        covers = false;
+                        break;
+                    }
+                }
+                if (covers) {
+                    coverage[implicant].insert(i);
+                }
+            }
         }
     }
+
+    set<int> uncovered;
+    for (size_t i = 0; i < values.size(); i++) {
+        if (values[i] == 1) {
+            uncovered.insert(i);
+        }
+    }
+
+    vector<string> essentialImplicants;
+    while (!uncovered.empty()) {
+        
+        string bestImplicant;
+        size_t maxCovered = 0;
+        for (const auto& [implicant, rows] : coverage) {
+            size_t coveredCount = 0;
+            for (int row : rows) {
+                if (uncovered.count(row)) {
+                    coveredCount++;
+                }
+            }
+            if (coveredCount > maxCovered) {
+                maxCovered = coveredCount;
+                bestImplicant = implicant;
+            }
+        }
+
+        essentialImplicants.push_back(bestImplicant);
+        for (int row : coverage[bestImplicant]) {
+            uncovered.erase(row);
+        }
+    }
+
+    string mdnf;
+    for (const auto& implicant : essentialImplicants) {
+        if (!mdnf.empty()) mdnf += " v ";
+        for (size_t j = 0; j < implicant.size(); j++) {
+            if (implicant[j] == '-') continue;
+            char variable = 'a' + j;
+            if (implicant[j] == '0') mdnf += "!" + string(1, variable);
+            else mdnf += variable;
+        }
+    }
+
     return mdnf.empty() ? "0" : mdnf;
 }
 
