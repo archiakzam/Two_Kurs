@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.IO;
@@ -47,7 +47,12 @@ namespace ClassLibrary
             base.Show();
             Console.WriteLine($"Experience: {Experience} years, Workshop: {Workshop}");
         }
-
+        public void ShowNonVirtual()
+        {
+            Console.WriteLine($"Perosna name: {Name}, age: {Age}, gender: {Gender}, address: {Address}");
+            Console.WriteLine($"Position: {Position}, Salary: {Salary}");
+            Console.WriteLine($"Experience: {Experience} years, Workshop: {Workshop}");
+        }
         public override void Init()
         {
             base.Init();
