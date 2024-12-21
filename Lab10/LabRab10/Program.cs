@@ -1,4 +1,4 @@
-﻿using ClassLibrary;
+using ClassLibrary;
 using System;
 class Program
 {
@@ -55,115 +55,166 @@ class Program
 
         for (int i = 0; i < count; i++)
         {
-            
-            switch(i % 4)
+            switch (i % 4)
             {
                 case 0:
                     personas[i] = new Persona();
                     break;
                 case 1:
-                    personas[i] = new Employee(); break;
+                    personas[i] = new Employee();
+                    break;
                 case 2:
-                    personas[i] = new Worker(); break;
+                    personas[i] = new Worker();
+                    break;
                 case 3:
-                    personas[i] = new Engineer(); break;
-                default :
-                    Console.WriteLine("Невероне значение");
-                    break ;
-            };
+                    personas[i] = new Engineer();
+                    break;
+            }
 
-            
             if (fillChoice == 1)
             {
-                personas[i].Init(); 
+                personas[i].Init();
             }
             else if (fillChoice == 2)
             {
-                personas[i].RandomInit(); 
+                personas[i].RandomInit();
             }
             else
             {
                 Console.WriteLine("Некорректный выбор. Используется случайная генерация.");
                 personas[i].RandomInit();
             }
+        }
 
-            personas[i].Show();
+        Console.WriteLine("Виртуальные и невиртуальные методы:");
+        foreach (Persona persona in personas)
+        {
+            Console.WriteLine("Виртуальный метод Show:");
+            persona.Show();
+            Console.WriteLine("Не виртуальный метод ShowNonVirtual:");
+            persona.ShowNonVirtual();
             Console.WriteLine();
         }
 
-        
-        Console.WriteLine("Сортировка по возрасту:");
-        Array.Sort(personas);
-        foreach (var persona in personas)
+        Console.WriteLine("Сортировка по имени:");
+        Array.Sort(personas, new Comparer(SortCriteria.Name));
+        Console.WriteLine("\nМассив после сортировки по имени:");
+        foreach (var person in personas)
         {
-            persona.Show();
-            Console.WriteLine("\n");
+            person.Show();
+        }
+        Console.WriteLine("\nБинарный поиск:");
+        Console.WriteLine("\nВведите имя для поиска:");
+        string searchName = Console.ReadLine();
+
+        
+        string[] names = new string[personas.Length];
+        for (int i = 0; i < personas.Length; i++)
+        {
+            names[i] = personas[i].Name;
+        }
+        int index = Array.BinarySearch(names, searchName, StringComparer.OrdinalIgnoreCase);
+
+        if (index >= 0)
+        {
+            Console.WriteLine($"Объект с именем \"{searchName}\" найден:");
+            personas[index].Show();
+        }
+        else
+        {
+            Console.WriteLine($"Объект с именем \"{searchName}\" не найден.");
         }
     }
+    
+
 
     static void DemonstrateCloning()
     {
+
         
-        Persona[] objects = new Persona[4]
-        {
+            Persona[] objects = new Persona[4]
+            {
         new Persona(),
         new Employee(),
         new Worker(),
         new Engineer()
-        };
+            };
 
-        foreach (var obj in objects)
-        {
-            obj.RandomInit();
-            Console.WriteLine("Оригинальный объект:");
-            obj.Show();
-
-            var shallowCopy = obj.ShallowCopy();
-            Console.WriteLine("\nПоверхностная копия:");
-            shallowCopy.Show();
-
-            var deepCopy = (Persona)obj.Clone();
-            Console.WriteLine("\nГлубокая копия:");
-            deepCopy.Show();
-
-            Console.WriteLine("\nИзменяем оригинальный объект...");
-            obj.Name = "Changed Name";
-            if (obj is Employee employee)
+            foreach (var obj in objects)
             {
-                employee.Address.City = "Los Angeles";
-                employee.Address.Street = "Sunset Boulevard";
+                obj.RandomInit();
+
+                Console.WriteLine("Оригинальный объект:");
+                obj.Show();
+                Console.WriteLine("Не виртуальный метод ShowNonVirtual:");
+                obj.ShowNonVirtual();
+
+                var shallowCopy = obj.ShallowCopy();
+                Console.WriteLine("\nПоверхностная копия:");
+                shallowCopy.Show();
+                Console.WriteLine("Не виртуальный метод ShowNonVirtual для поверхностной копии:");
+                shallowCopy.ShowNonVirtual();
+
+                var deepCopy = (Persona)obj.Clone();
+                Console.WriteLine("\nГлубокая копия:");
+                deepCopy.Show();
+                Console.WriteLine("Не виртуальный метод ShowNonVirtual для глубокой копии:");
+                deepCopy.ShowNonVirtual();
+
+                Console.WriteLine("\nИзменяем оригинальный объект...");
+                obj.Name = "Changed Name";
+                if (obj is Employee employee)
+                {
+                    employee.Address.City = "Los Angeles";
+                    employee.Address.Street = "Sunset Boulevard";
+                }
+
+                Console.WriteLine("\nОригинальный объект после изменения:");
+                obj.Show();
+                Console.WriteLine("Не виртуальный метод ShowNonVirtual:");
+                obj.ShowNonVirtual();
+
+                Console.WriteLine("\nПоверхностная копия после изменения оригинального объекта:");
+                shallowCopy.Show();
+                Console.WriteLine("Не виртуальный метод ShowNonVirtual:");
+                shallowCopy.ShowNonVirtual();
+
+                Console.WriteLine("\nГлубокая копия после изменения оригинального объекта:");
+                deepCopy.Show();
+                Console.WriteLine("Не виртуальный метод ShowNonVirtual:");
+                deepCopy.ShowNonVirtual();
+
+                Console.WriteLine("\n--------------------------------\n");
             }
-
-            Console.WriteLine("\nОригинальный объект после изменения:");
-            obj.Show();
-
-            Console.WriteLine("\nПоверхностная копия после изменения оригинального объекта:");
-            shallowCopy.Show();
-
-            Console.WriteLine("\nГлубокая копия после изменения оригинального объекта:");
-            deepCopy.Show();
-
-            Console.WriteLine("\n--------------------------------\n");
         }
-    }
+
+   
 
 
     static void WorkWithIInit()
     {
-        // Работа с элементами интерфейса IInit
         IInit[] initObjects = new IInit[5]
         {
-            new Persona(),
-            new Employee(),
-            new Worker(),
-            new Engineer(),
-            new Vehicle() // Если Vehicle реализует IInit
+        new Persona(),
+        new Employee(),
+        new Worker(),
+        new Engineer(),
+        new Vehicle()
         };
 
         foreach (var obj in initObjects)
         {
             obj.RandomInit();
             obj.Show();
+
+            if (obj is Persona personaObj)
+            {
+                Console.WriteLine("Не виртуальный метод ShowNonVirtual:");
+                personaObj.ShowNonVirtual();
+            }
+
+            Console.WriteLine();
         }
     }
+
 }
