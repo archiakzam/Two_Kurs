@@ -1,4 +1,4 @@
-﻿using ClassLibrary;
+using ClassLibrary;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
@@ -87,6 +87,11 @@ namespace ClassLibrary
             return HashCode.Combine(Name, Speed);
         }
         public void Show()
+        {
+            Console.WriteLine("Название: " + Name);
+            Console.WriteLine("Скорость: " + Speed);
+        }
+        public void ShowNonVirtual()
         {
             Console.WriteLine("Название: " + Name);
             Console.WriteLine("Скорость: " + Speed);
