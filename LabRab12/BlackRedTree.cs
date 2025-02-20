@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using static System.Diagnostics.Activity;
@@ -260,7 +260,11 @@ namespace LabRab12
                 BalanceTreeAfterDeletion(child, nodeToFix.Parent);
             }
         }
-
+        public T Find(T value)
+        {
+            var node = FindNode(root, value);
+            return node != null ? node.Value : default;
+        }
         private Node<T> FindNode(Node<T> node, T value)
         {
             if (node == null || value.CompareTo(node.Value) == 0)
