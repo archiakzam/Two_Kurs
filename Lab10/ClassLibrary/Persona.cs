@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.Linq;
@@ -80,6 +80,10 @@ namespace ClassLibrary
         {
             Console.WriteLine($"Perosna name: {Name} age: {Age} gender :{Gender} address:{Address}");
         }
+        public void ShowNonVirtual()
+        {
+            Console.WriteLine($"Perosna name: {Name}, age: {Age}, gender: {Gender}, address: {Address}");
+        }
         public virtual void Init()
         {
             Console.WriteLine("Enter name:");
@@ -143,7 +147,8 @@ namespace ClassLibrary
         public int CompareTo(Persona other)
         {
             if (other == null) return 1;
-            return Age.CompareTo(other.Age);
+            int nameComparison = string.Compare(Name, other.Name, StringComparison.Ordinal);
+            return nameComparison != 0 ? nameComparison : Age.CompareTo(other.Age);
         }
         public override int GetHashCode()
         {
