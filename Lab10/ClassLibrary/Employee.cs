@@ -67,22 +67,27 @@ namespace ClassLibrary
         }
         public override bool Equals(object obj)
         {
-            if (obj is Engineer other)
+            if (obj is Employee other)
             {
-                return base.Equals(other) &&
-                       Position == other.Position &&
-                       Salary == other.Salary&&
-                       Address.Equals(other.Address);
+                return BasePersona.Equals(other.BasePersona) && Position == other.Position && Salary == other.Salary;
             }
             return false;
         }
+
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return HashCode.Combine(BasePersona, Position, Salary);
         }
         public override Persona ShallowCopy()
         {
             return (Employee)this.MemberwiseClone();
+        }
+        public Persona BasePersona
+        {
+            get
+            {
+                return new Persona(this.Name, this.Age, this.Gender, this.Address);
+            }
         }
         public override object Clone()
         {
