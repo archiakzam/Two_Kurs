@@ -260,53 +260,6 @@ namespace LabRab12
                 BalanceTreeAfterDeletion(child, nodeToFix.Parent);
             }
         }
-        public T Find(T value)
-        {
-            var node = FindNode(root, value);
-            return node != null ? node.Value : default;
-        }
-        private Node<T> FindNode(Node<T> node, T value)
-        {
-            if (node == null || value.CompareTo(node.Value) == 0)
-            {
-                return node;
-            }
-
-            if (value.CompareTo(node.Value) < 0)
-            {
-                return FindNode(node.Left, value);
-            }
-            else
-            {
-                return FindNode(node.Right, value);
-            }
-        }
-
-        private Node<T> FindSuccessor(Node<T> node)
-        {
-            if (node.Right != null)
-            {
-                return FindMinimum(node.Right);
-            }
-
-            Node<T> parent = node.Parent;
-            while (parent != null && node == parent.Right)
-            {
-                node = parent;
-                parent = parent.Parent;
-            }
-            return parent;
-        }
-
-        private Node<T> FindMinimum(Node<T> node)
-        {
-            while (node.Left != null)
-            {
-                node = node.Left;
-            }
-            return node;
-        }
-
         private void BalanceTreeAfterDeletion(Node<T> node, Node<T> parent)
         {
             while (node != root && (node == null || node.Color == NodeColor.Black))
@@ -400,6 +353,54 @@ namespace LabRab12
                 node.Color = NodeColor.Black;
             }
         }
+        public T Find(T value)
+        {
+            var node = FindNode(root, value);
+            return node != null ? node.Value : default;
+        }
+        private Node<T> FindNode(Node<T> node, T value)
+        {
+            if (node == null || value.CompareTo(node.Value) == 0)
+            {
+                return node;
+            }
+
+            if (value.CompareTo(node.Value) < 0)
+            {
+                return FindNode(node.Left, value);
+            }
+            else
+            {
+                return FindNode(node.Right, value);
+            }
+        }
+
+        private Node<T> FindSuccessor(Node<T> node)
+        {
+            if (node.Right != null)
+            {
+                return FindMinimum(node.Right);
+            }
+
+            Node<T> parent = node.Parent;
+            while (parent != null && node == parent.Right)
+            {
+                node = parent;
+                parent = parent.Parent;
+            }
+            return parent;
+        }
+
+        private Node<T> FindMinimum(Node<T> node)
+        {
+            while (node.Left != null)
+            {
+                node = node.Left;
+            }
+            return node;
+        }
+
+        
 
         private void RotateLeft(Node<T> node)
         {
