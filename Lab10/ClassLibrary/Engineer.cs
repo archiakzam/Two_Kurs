@@ -89,6 +89,13 @@ namespace ClassLibrary
         {
             return (Engineer)this.MemberwiseClone();
         }
+        public Worker BaseWorker
+        {
+            get
+            {
+                return new Worker(this.Name, this.Age, this.Gender, this.Address, this.Position, this.Salary, this.Experience, this.Workshop);
+            }
+        }
         public override object Clone()
         {
             return new Engineer(
