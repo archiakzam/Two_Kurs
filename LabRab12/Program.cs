@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using ClassLibrary;
 
 namespace LabRab12
@@ -111,31 +111,85 @@ namespace LabRab12
 
         private static void RemoveElement(RedBlackTree<Persona> tree)
         {
-            Console.WriteLine("Введите имя элемента для удаления:");
+            Console.WriteLine("Введите данные элемента для удаления:");
+
+            Console.Write("Имя: ");
             string name = Console.ReadLine();
 
-            var persona = new Persona { Name = name };
-            if (tree.Contains(persona))
+            Console.Write("Возраст: ");
+            int age = 0;
+            while (age < 18)
             {
-                tree.Remove(persona);
-                Console.WriteLine("Элемент удален.");
+                age = LibConvert.TryToConvertInt();
+            }
+            Console.Write("Пол: ");
+            string gender = Console.ReadLine();
+
+            Console.Write("Город: ");
+            string city = Console.ReadLine();
+
+            Console.Write("Улица: ");
+            string street = Console.ReadLine();
+
+            var removePersona = new Persona
+            {
+                Name = name,
+                Age = age,
+                Gender = gender,
+                Address = new Address(city, street)
+            };
+
+            // Находим объект в коллекции
+            var foundPersona = tree.Find(removePersona);
+
+            if (foundPersona != null)
+            {
+                tree.Remove(foundPersona);
+                Console.WriteLine("Элемент удален:");
+                foundPersona.Show(); // Выводим данные из коллекции
             }
             else
             {
                 Console.WriteLine("Элемент не найден.");
             }
         }
-
         private static void SearchElement(RedBlackTree<Persona> tree)
         {
-            Console.WriteLine("Введите имя элемента для поиска:");
+            Console.WriteLine("Введите данные элемента для поиска:");
+
+            Console.Write("Имя: ");
             string name = Console.ReadLine();
 
-            var persona = new Persona { Name = name };
-            if (tree.Contains(persona))
+            Console.Write("Возраст: ");
+            int age = 0;
+            while (age < 18)
+            {
+                age = LibConvert.TryToConvertInt();
+            }
+            Console.Write("Пол: ");
+            string gender = Console.ReadLine();
+
+            Console.Write("Город: ");
+            string city = Console.ReadLine();
+
+            Console.Write("Улица: ");
+            string street = Console.ReadLine();
+
+            var searchPersona = new Persona
+            {
+                Name = name,
+                Age = age,
+                Gender = gender,
+                Address = new Address(city, street)
+            };
+
+            // Находим объект в коллекции
+            var foundPersona = tree.Find(searchPersona);
+
+            if (foundPersona != null)
             {
                 Console.WriteLine("Элемент найден:");
-                persona.Show();
+                foundPersona.Show(); // Выводим данные из коллекции
             }
             else
             {
